@@ -1,0 +1,4 @@
+services:
+#    obsel.example:
+#        class: ObselBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
