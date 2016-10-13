@@ -1,0 +1,48 @@
+<?php
+
+namespace ObselBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ObselCategory
+ *
+ * @ORM\Table(name="obsel_category")
+ * @ORM\Entity(repositoryClass="ObselBundle\Repository\ObselCategoryRepository")
+ */
+class ObselCategory
+{
+    /**
+     * @var int $id The ObselCategory id
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @var string The name.
+     *
+     * @ORM\Column(name="name", type="string")
+     */
+    protected $name;
+
+    /**
+     * @var array<Obsel> The list Obsel.
+     *
+     * @ORM\OneToMany(targetEntity="Obsel", mappedBy="obselCategory", cascade={"remove"})
+     */
+    private $obsels;
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}
+
