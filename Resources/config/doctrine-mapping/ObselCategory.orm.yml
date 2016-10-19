@@ -1,0 +1,13 @@
+# ObselBundle/Ressources/config/doctrine-mapping/ObselCategory.orm.yml
+ObselBundle\Ressources\config\doctrine-mapping\ObselCategory:
+    type: entity
+    repositoryClass: ObselBundle\Repository\ObselCategoryRepository
+    table: obsel
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+            length: 100

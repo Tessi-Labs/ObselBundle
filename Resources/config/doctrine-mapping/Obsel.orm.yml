@@ -1,6 +1,7 @@
-# ObselBundle/Document/Obsel.yml
-ObselBundle\Product\Obsel:
+# ObselBundle/Ressources/config/doctrine-mapping/Obsel.orm.yml
+ObselBundle\Ressources\config\doctrine-mapping\Obsel:
     type: entity
+    repositoryClass: ObselBundle\Repository\ObselRepository
     table: obsel
     id:
         id:
@@ -13,9 +14,6 @@ ObselBundle\Product\Obsel:
             type: datetime
         subject:
             type: string
+            length: 255
         metadata:
             type: text
-        subject:
-            type: string
-        obselCategory:
-            type: ObselCategory

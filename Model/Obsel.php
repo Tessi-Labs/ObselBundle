@@ -1,61 +1,43 @@
 <?php
 
-namespace ObselBundle\Entity;
+namespace ObselBundle\Model;
 
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
 
 /**
- * Obsel
- *
- * @ORM\Table(name="obsel")
- * @ORM\Entity(repositoryClass="ObselBundle\Repository\ObselRepository")
+ * Obsel object.
  */
 class Obsel
 {
     /**
      * @var int $id The Obsel id.
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
 
     /**
      * @var datetime $startsAt The Obsel starts at.
-     *
-     * @ORM\Column(name="starts_at", type="datetime")
      */
     protected $startsAt;
 
     /**
      * @var datetime $endsAt The Obsel ends at.
-     *
-     * @ORM\Column(name="ends_at", type="datetime")
      */
     protected $endsAt;
 
     /**
      * @var string $subject The Obsel subject.
-     *
-     * @ORM\Column(name="subject", type="string")
      */
     protected $subject;
 
     /**
      * @var text $metadata The Obsel metadata.
-     *
-     * @ORM\Column(name="metadata", type="text", nullable=true)
      */
     protected $metadata;
 
     /**
-     * @var ObselCategory
-     *
-     * @ORM\ManyToOne(targetEntity="ObselCategory", inversedBy="obsels")
-     * @ORM\JoinColumn(name="obsel_category_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
+     * @var Collection
      */
-    private $obselCategory;
+    protected $obselCategory;
 
     /**
      * Get id
@@ -74,7 +56,7 @@ class Obsel
      *
      * @return Obsel
      */
-    public function setStartsAt($startsAt)
+    public function setStartsAt(\DateTime $startsAt)
     {
         $this->startsAt = $startsAt;
 
@@ -98,7 +80,7 @@ class Obsel
      *
      * @return Obsel
      */
-    public function setEndsAt($endsAt)
+    public function setEndsAt(\DateTime $endsAt)
     {
         $this->endsAt = $endsAt;
 
@@ -166,11 +148,11 @@ class Obsel
     /**
      * Set obselCategory
      *
-     * @param \ObselBundle\Entity\ObselCategory $obselCategory
+     * @param \ObselBundle\Model\ObselCategory $obselCategory
      *
      * @return Obsel
      */
-    public function setObselCategory(\ObselBundle\Entity\ObselCategory $obselCategory)
+    public function setObselCategory(\ObselBundle\Model\ObselCategory $obselCategory)
     {
         $this->obselCategory = $obselCategory;
 
@@ -180,7 +162,7 @@ class Obsel
     /**
      * Get obselCategory
      *
-     * @return \ObselBundle\Entity\ObselCategory
+     * @return \ObselBundle\Model\ObselCategory
      */
     public function getObselCategory()
     {

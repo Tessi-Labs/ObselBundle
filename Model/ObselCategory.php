@@ -1,39 +1,29 @@
 <?php
 
-namespace ObselBundle\Entity;
+namespace ObselBundle\Model;
 
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 /**
- * ObselCategory
- *
- * @ORM\Table(name="obsel_category")
- * @ORM\Entity(repositoryClass="ObselBundle\Repository\ObselCategoryRepository")
+ * ObselCategory object
  */
 class ObselCategory
 {
     /**
      * @var int $id The ObselCategory id
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
 
     /**
      * @var string The ObselCategory name.
-     *
-     * @ORM\Column(name="name", type="string")
      */
     protected $name;
 
     /**
-     * @var array<Obsel> The Obsel list.
-     *
-     * @ORM\OneToMany(targetEntity="Obsel", mappedBy="obselCategory", cascade={"remove"})
+     * @var Collection
      */
-    private $obsels;
+    protected $obsels;
 
     /**
      * Get id
@@ -80,11 +70,11 @@ class ObselCategory
     /**
      * Add obsel
      *
-     * @param \ObselBundle\Entity\Obsel $obsel
+     * @param \ObselBundle\Model\Obsel $obsel
      *
      * @return ObselCategory
      */
-    public function addObsel(\ObselBundle\Entity\Obsel $obsel)
+    public function addObsel(\ObselBundle\Model\Obsel $obsel)
     {
         $this->obsels[] = $obsel;
 
@@ -94,9 +84,9 @@ class ObselCategory
     /**
      * Remove obsel
      *
-     * @param \ObselBundle\Entity\Obsel $obsel
+     * @param \ObselBundle\Model\Obsel $obsel
      */
-    public function removeObsel(\ObselBundle\Entity\Obsel $obsel)
+    public function removeObsel(\ObselBundle\Model\Obsel $obsel)
     {
         $this->obsels->removeElement($obsel);
     }
