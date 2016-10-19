@@ -1,0 +1,21 @@
+# ObselBundle/Document/Obsel.yml
+ObselBundle\Product\Obsel:
+    type: entity
+    table: obsel
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        startsAt:
+            type: datetime
+        endsAt:
+            type: datetime
+        subject:
+            type: string
+        metadata:
+            type: text
+        subject:
+            type: string
+        obselCategory:
+            type: ObselCategory

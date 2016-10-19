@@ -1,0 +1,13 @@
+# ObselBundle/Document/ObselCategory.yml
+ObselBundle\Product\ObselCategory:
+    type: entity
+    table: obsel
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+        obsels:
+            type: Obsel
