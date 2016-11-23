@@ -1,4 +1,4 @@
 services:
-#    obsel.example:
-#        class: ObselBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+  tessi_labs_obsel.object_manager:
+      class: Doctrine\Common\Persistence\ObjectManager

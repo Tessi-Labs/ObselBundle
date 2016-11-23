@@ -11,15 +11,14 @@
 
 namespace TessiLabs\ObselBundle\DependencyInjection;
 
-use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\Alias;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use Symfony\Component\DependencyInjection\Loader;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
-class ObselExtension extends Extension
+class TessiLabsObselExtension extends Extension
 {
     /**
      * @var array
@@ -40,26 +39,20 @@ class ObselExtension extends Extension
      */
     public function load(array $configs, ContainerBuilder $container)
     {
-        $processor = new Processor();
         $configuration = new Configuration();
+        $config = $this->processConfiguration($configuration, $configs);
 
-        $config = $processor->processConfiguration($configuration, $configs);
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader->load('services.yml');
 
-        $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $container->setAlias(
+            'tessi_labs_obsel.doctrine_registry',
+            new Alias(self::$doctrineDrivers[$config['db_driver']]['registry'], true)
+        );
 
-        var_dump($config); die;
-
-        if (isset(self::$doctrineDrivers[$config['db_driver']])) {
-            $loader->load('doctrine.xml');
-            $container->setAlias('obsel.doctrine_registry', new Alias(self::$doctrineDrivers[$config['db_driver']]['registry'], false));
-        } else {
-            $loader->load(sprintf('%s.xml', $config['db_driver']));
-        }
         $container->setParameter($this->getAlias().'.backend_type_'.$config['db_driver'], true);
 
-        if (isset(self::$doctrineDrivers[$config['db_driver']])) {
-            $definition = $container->getDefinition('obsel.object_manager');
-            $definition->setFactory(array(new Reference('obsel.doctrine_registry'), 'getManager'));
-        }
+        $definition = $container->getDefinition('tessi_labs_obsel.object_manager');
+        $definition->setFactory(array(new Reference('tessi_labs_obsel.doctrine_registry'), 'getManager'));
     }
 }

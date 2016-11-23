@@ -11,10 +11,8 @@
 
 namespace TessiLabs\ObselBundle\DependencyInjection;
 
-use ObselBundle\Util\LegacyFormHelper; /* afer */
-use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
-use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
+use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 
 /**
  * This class contains the configuration information for the bundle.
@@ -32,7 +30,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('tessilabs_obsel');
+        $rootNode = $treeBuilder->root('tessi_labs_obsel');
 
         $supportedDrivers = array('orm', 'mongodb');
 
@@ -49,5 +47,7 @@ class Configuration implements ConfigurationInterface
                 ->end()
             ->end()
         ;
+
+        return $treeBuilder;
     }
 }
