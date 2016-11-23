@@ -1,5 +1,5 @@
 # ObselBundle/Ressources/config/doctrine-mapping/Obsel.orm.yml
-ObselBundle\Ressources\config\doctrine-mapping\Obsel:
+ObselBundle\Model\Obsel:
     type: entity
     repositoryClass: ObselBundle\Repository\ObselRepository
     table: obsel
@@ -8,12 +8,14 @@ ObselBundle\Ressources\config\doctrine-mapping\Obsel:
             type: integer
             generator: { strategy: AUTO }
     fields:
-        startsAt:
-            type: datetime
-        endsAt:
-            type: datetime
         subject:
             type: string
             length: 255
         metadata:
             type: text
+        startsAt:
+            type: datetime
+            column: starts_at
+        endsAt:
+            type: datetime
+            column: ends_at

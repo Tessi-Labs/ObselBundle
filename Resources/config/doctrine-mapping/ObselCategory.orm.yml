@@ -1,8 +1,8 @@
 # ObselBundle/Ressources/config/doctrine-mapping/ObselCategory.orm.yml
-ObselBundle\Ressources\config\doctrine-mapping\ObselCategory:
+ObselBundle\Model\ObselCategory:
     type: entity
     repositoryClass: ObselBundle\Repository\ObselCategoryRepository
-    table: obsel
+    table: obsel_category
     id:
         id:
             type: integer
