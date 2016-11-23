@@ -1,6 +1,6 @@
 <?php
 
-namespace ObselBundle\Model;
+namespace TessiLabs\ObselBundle\Model;
 
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;

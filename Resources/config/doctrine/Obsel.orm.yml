@@ -1,6 +1,6 @@
-ObselBundle\Model\Obsel:
+TessiLabs\ObselBundle\Model\Obsel:
     type: entity
-    repositoryClass: ObselBundle\Repository\ObselRepository
+    repositoryClass: TessiLabs\ObselBundle\Repository\ObselRepository
     table: obsel
     id:
         id:

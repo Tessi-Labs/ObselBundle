@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace ObselBundle\DependencyInjection;
+namespace TessiLabs\ObselBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\Config\FileLocator;

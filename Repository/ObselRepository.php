@@ -1,6 +1,6 @@
 <?php
 
-namespace ObselBundle\Repository;
+namespace TessiLabs\ObselBundle\Repository;
 
 /**
  * ObselRepository

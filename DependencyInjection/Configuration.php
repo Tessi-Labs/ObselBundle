@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace ObselBundle\DependencyInjection;
+namespace TessiLabs\ObselBundle\DependencyInjection;
 
 use ObselBundle\Util\LegacyFormHelper; /* afer */
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;

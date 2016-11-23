@@ -1,6 +1,6 @@
 <?php
 
-namespace ObselBundle;
+namespace TessiLabs\ObselBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
