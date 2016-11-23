@@ -4,6 +4,6 @@ namespace ObselBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class ObselBundle extends Bundle
+class TessiLabsObselBundle extends Bundle
 {
 }

@@ -1,4 +1,3 @@
-# ObselBundle/Ressources/config/doctrine-mapping/Obsel.orm.yml
 ObselBundle\Model\Obsel:
     type: entity
     repositoryClass: ObselBundle\Repository\ObselRepository
